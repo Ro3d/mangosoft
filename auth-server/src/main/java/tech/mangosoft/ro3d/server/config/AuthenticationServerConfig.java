@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @Configuration
 @EnableAuthorizationServer
 public class AuthenticationServerConfig extends AuthorizationServerConfigurerAdapter {
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -27,10 +28,8 @@ public class AuthenticationServerConfig extends AuthorizationServerConfigurerAda
                 .withClient("ro3d_clientid")
                 .secret("secret")
                 .authorizedGrantTypes("authorization_code")
-                .scopes("user_info")
-                .autoApprove(true)
-        // .accessTokenValiditySeconds(3600)
-        ; // 1 hour
+                .scopes("user")
+                .autoApprove(true);
     }
 
     @Override
